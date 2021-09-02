@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package data;
 
 import model.funcionario;
@@ -14,15 +9,13 @@ import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author Vinicius
- */
 public class funcionarioDAO extends funcionario {
+    //metodo que lista os dados da tabela funcionarios no banco de dados
     public List<funcionario> listar(){
         List<funcionario> funcionarios = new ArrayList<funcionario>();
         
         try {
+            //objeto de conexão
             Connection con = new conexao().getConnection();
             PreparedStatement smt = con.prepareStatement("select * from Funcionarios where \"status\" = 'Ativo';");
             ResultSet rs = smt.executeQuery();
